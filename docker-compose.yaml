@@ -1,0 +1,13 @@
+services:
+  google-jobs-scraper:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    shm_size: 1gb
+    environment:
+      - PORT=8000
+      # Optional — solve Google's captcha automatically when it shows up (see config.py).
+      # - CAPSOLVER_API_KEY=CAP-...
+      # Optional — sticky residential proxy ({session} = a fresh id per browser session).
+      # - GOOGLE_JOBS_PROXY=http://user-session-{session}:pass@host:port
